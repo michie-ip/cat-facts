@@ -48,7 +48,7 @@ const index_page = (state, refresh) => (
       <div className={componentStyle.catFact}>
         <div className={componentStyle.row}>
           <div className={componentStyle.container}>
-            <h1>{state.fact}</h1>
+            <h2 className={componentStyle.fact}>{state.fact}</h2>
             <div className={componentStyle.buttonsWrapper}>
               <button onClick={refresh} className={componentStyle.btn}>Refresh</button>
               <Link to="/adoption/" className={`${componentStyle.btn} ${componentStyle.btnPrimary}`}>Adopt Us</Link>
