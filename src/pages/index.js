@@ -2,10 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import unsplashApi from "../services/unsplash_api"
 import catfactsApi from "../services/cat_facts_api"
+
+import componentStyle from "../components/style.module.scss"
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -23,20 +24,25 @@ class IndexPage extends React.Component {
     const cat_facts_api = new catfactsApi();
 
     cat_facts_api.getFacts().then(facts => {
-      this.setState({fact: facts[1].fact})
+      this.setState({fact: facts[0].fact})
     })
-
   }
   render() {
     return index_page(this.state);
   }
+
 }
 const index_page = (state) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Random cat facts goes here</h1>
-      <img src={state.image} class="background-image"/>
-    <Link to="/page-2/">Go to page 2</Link>
+    <div className={componentStyle.catImage}  style={{ backgroundImage:`url(${state.image})`, height: `100vh` }}>
+      <div className={componentStyle.catFact}>
+        <h1>{state.fact}</h1>
+        <Link to="/adoption/" className={btn}>Refresh</Link>
+        <Link to="/adoption/">Adopt Us</Link>
+      </div>
+    </div>
+      {/* <img src={state.image} class="background-image"/> */}
   </Layout>
 )
 

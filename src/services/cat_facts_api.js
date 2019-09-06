@@ -10,7 +10,7 @@ class CatFact {
 class CatFactsAPI {
 
   constructor() {
-    this.baseURL = "https://cat-fact.herokuapp.com";
+    this.baseURL = "https://catfact.ninja";
     this.apiClient = axios.create({
       baseURL: this.baseURL,
       timeout: 60000,
@@ -18,12 +18,11 @@ class CatFactsAPI {
   }
 
   getFacts() {
-    return this.apiClient.get("/facts").then(resp => {
+    return this.apiClient.get("/fact").then(resp => {
       const respData = resp.data;
       const facts = respData.all.map((fact) => {
         const cat_fact = new CatFact({
-          id: fact._id,
-          fact: fact.text,
+          fact: fact.fact,
         });
         return cat_fact
       });
