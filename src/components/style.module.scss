@@ -47,3 +47,17 @@ main {
     }
   }
 }
+.cat-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  div {
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+  }
+}

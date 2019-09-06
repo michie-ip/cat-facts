@@ -5,12 +5,23 @@ const unsplash = new Unsplash({
   secret: "d6a07c3ae56a1392c9801b6428aaecf1fe5f8d93f618d861061c908eb007f776"
 });
 
-function unsplash_api() {
+function getRandomCat() {
   return unsplash.photos.getRandomPhoto({query: "cat"})
     .then(toJson)
     .then(json => {
-      console.log(json)
+      // console.log(json)
       return json.urls
     });
 }
-export default unsplash_api;
+
+function getCatList() {
+  return unsplash.search.photos('cat', 1, 12)
+      .then(toJson)
+      .then(json => {
+        // console.log(json)
+        return json.results
+    });
+}
+
+export default {getRandomCat, getCatList};
+
