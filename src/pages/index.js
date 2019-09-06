@@ -15,6 +15,7 @@ class IndexPage extends React.Component {
       fact: ""
     }
   }
+
   componentDidMount() {
     unsplashApi().then(image_urls => {
       this.setState({image: image_urls.regular})
@@ -22,11 +23,11 @@ class IndexPage extends React.Component {
 
     const cat_facts_api = new catfactsApi();
 
-    cat_facts_api.getFacts().then(facts => {
-      this.setState({fact: facts[1].fact})
-    })
-
+    cat_facts_api.getFact().then(fact => {
+      this.setState({fact: fact.fact});
+    });
   }
+
   render() {
     return index_page(this.state);
   }
