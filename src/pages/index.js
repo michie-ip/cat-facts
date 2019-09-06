@@ -32,7 +32,6 @@ class IndexPage extends React.Component {
 
   refresh(e) {
     e.preventDefault();
-    console.log('hello')
     this.componentDidMount();
   }
 

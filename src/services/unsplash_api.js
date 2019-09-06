@@ -9,7 +9,6 @@ function getRandomCat() {
   return unsplash.photos.getRandomPhoto({query: "cat"})
     .then(toJson)
     .then(json => {
-      // console.log(json)
       return json.urls
     });
 }
@@ -18,7 +17,6 @@ function getCatList() {
   return unsplash.search.photos('cat', 1, 12)
       .then(toJson)
       .then(json => {
-        // console.log(json)
         return json.results
     });
 }

@@ -52,11 +52,13 @@ const CatProfileComponent = ({cat}) => {
 const adoption_page = (state) => (
   <Layout>
     <SEO title="Adoption" />
-    <h1>Adopt Us</h1>
-    <div className={componentStyle.catList}>
-      <CatLists cats={state.cats}/>
+    <div className={componentStyle.adoptionPage}>
+      <h1>Adopt Us</h1>
+      <div className={componentStyle.catList}>
+        <CatLists cats={state.cats}/>
+      </div>
+      <Link to="/" className={`${componentStyle.btn} ${componentStyle.btnPrimary} ${componentStyle.btnLg}`}>More Cat Facts</Link>
     </div>
-    <Link to="/" className={`${componentStyle.btn} ${componentStyle.btnPrimary}`}>More Cat Facts</Link>
   </Layout>
 )
 
