@@ -24,6 +24,12 @@ main {
   background-position: center;
   background-size: cover;
 }
+
+.fact {
+  color: $white;
+  text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -2px black;
+}
+
 .catFact {
   display: flex;
   justify-content: center;

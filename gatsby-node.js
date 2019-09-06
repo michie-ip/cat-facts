@@ -8,7 +8,7 @@ var request = require("request");
 
 exports.onCreateDevServer = ({ app }) => {
   app.get("/fact", function(req, res) {
-    request.get("https://catfact.ninja/fact", function(err, resp, body) {
+    request.get("https://catfact.ninja/fact?max_length=50", function(err, resp, body) {
       let json = JSON.parse(body);
       res.send(body);
     });
