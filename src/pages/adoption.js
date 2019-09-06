@@ -3,6 +3,14 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import unsplashApi from "../services/unsplash_api"
+
+class AdoptionPage extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+}
 
 const SecondPage = () => (
   <Layout>

@@ -10,7 +10,8 @@ import componentStyle from "../components/style.module.scss"
 
 class IndexPage extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.refresh = this.refresh.bind(this);
     this.state = {
       image: "",
       fact: ""
@@ -24,33 +25,38 @@ class IndexPage extends React.Component {
 
     const cat_facts_api = new catfactsApi();
 
-<<<<<<< HEAD
-    cat_facts_api.getFacts().then(facts => {
-      this.setState({fact: facts[0].fact})
-    })
-=======
     cat_facts_api.getFact().then(fact => {
       this.setState({fact: fact.fact});
     });
->>>>>>> 9450f0cf02aca85ff9fb05f8560304d66e2661ec
+  }
+
+  refresh(e) {
+    e.preventDefault();
+    console.log('hello')
+    this.componentDidMount();
   }
 
   render() {
-    return index_page(this.state);
+    return index_page(this.state, this.refresh);
   }
 
 }
-const index_page = (state) => (
+const index_page = (state, refresh) => (
   <Layout>
     <SEO title="Home" />
     <div className={componentStyle.catImage}  style={{ backgroundImage:`url(${state.image})`, height: `100vh` }}>
       <div className={componentStyle.catFact}>
-        <h1>{state.fact}</h1>
-        <Link to="/adoption/" className={btn}>Refresh</Link>
-        <Link to="/adoption/">Adopt Us</Link>
+        <div className={componentStyle.row}>
+          <div className={componentStyle.container}>
+            <h1>{state.fact}</h1>
+            <div className={componentStyle.buttonsWrapper}>
+              <button onClick={refresh} className={componentStyle.btn}>Refresh</button>
+              <Link to="/adoption/" className={`${componentStyle.btn} ${componentStyle.btnPrimary}`}>Adopt Us</Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-      {/* <img src={state.image} class="background-image"/> */}
   </Layout>
 )
 

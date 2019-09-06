@@ -1,19 +1,24 @@
+@import "~bootstrap/scss/bootstrap";
+
 $background: cornflowerblue;
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 $white: #efefef;
+$shadow-purple: 0 1px 1px rebeccapurple;
 
 body {
-  // background: $background;
   font: 100% $font-stack;
   color: $primary-color;
 }
-
 main {
   width: 100%;
   height: 100vh;
 }
-
+.btn {
+  border: 1px solid $white;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+}
 .catImage {
   background-repeat: no-repeat;
   background-position: center;
@@ -23,10 +28,22 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
   height: 100vh;
   color: $white;
+  text-align: center;
   a {
     color: $white;
     text-decoration: none;
+    text-shadow: $shadow-purple;
+  }
+  .buttons-wrapper {
+    .btn {
+      margin: 0 12px;
+      &:hover {
+        color: #fff;
+      }
+    }
   }
 }
