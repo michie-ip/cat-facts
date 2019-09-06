@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import unsplashApi from "../services/unsplash_api"
+import catfactsApi from "../services/cat_facts_api"
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -15,9 +16,15 @@ class IndexPage extends React.Component {
     }
   }
   componentDidMount() {
-    return unsplashApi().then(image_urls => {
+    unsplashApi().then(image_urls => {
       this.setState({image: image_urls.regular})
     });
+
+    const cat_facts_api = new catfactsApi();
+
+    cat_facts_api.getFacts().then(facts => {
+      this.setState({fact: facts[1].fact})
+    })
 
   }
   render() {
@@ -27,12 +34,8 @@ class IndexPage extends React.Component {
 const index_page = (state) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <img src={state.image} />
-    </div>
+    <h1>Random cat facts goes here</h1>
+      <img src={state.image} class="background-image"/>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )

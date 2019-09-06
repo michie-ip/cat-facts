@@ -13,6 +13,11 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-sass`, {
+      options: {
+        useResolveUrlLoader: true,
+      },
+    }
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

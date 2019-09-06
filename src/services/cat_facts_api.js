@@ -21,10 +21,11 @@ class CatFactsAPI {
     return this.apiClient.get("/facts").then(resp => {
       const respData = resp.data;
       const facts = respData.all.map((fact) => {
-        const fact = new CatFact({
+        const cat_fact = new CatFact({
           id: fact._id,
           fact: fact.text,
         });
+        return cat_fact
       });
 
       return facts;
