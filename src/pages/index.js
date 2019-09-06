@@ -19,7 +19,7 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    unsplashApi().then(image_urls => {
+    unsplashApi.getRandomCat().then(image_urls => {
       this.setState({image: image_urls.regular})
     });
 
